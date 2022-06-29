@@ -74,27 +74,16 @@ The JSON results output file can be loaded into __[heimdall-lite](https://heimda
 The JSON InSpec results file may also be loaded into a __[full heimdall server](https://github.com/mitre/heimdall)__, allowing for additional functionality such as to store and compare multiple profile runs.
 
 ## Authors
-* Sam Cornwell
-* Danny Haynes
-* Trevor Vaughan
-* Aaron Lippold
-* Kyle Fagan
-* LJ Kimmel
-* KC Linden
-* Rony Xavier
-* Mohamed El-Sharkawi
 
 ## Special Thanks
-* The SIMP Project Team
-* Eugene Aronne
-* Shivani Karikar
+* Lockheed Martin
 
 ## Contributing and Getting Help
 To report a bug or feature request, please open an [issue](https://github.com/mitre/google-chrome-v2r6-stig-baseline/issues/new).
 
 ### NOTICE
 
-© 2018-2020 The MITRE Corporation.
+© 2018-2022 The MITRE Corporation.
 
 Approved for Public Release; Distribution Unlimited. Case Number 18-3678.
 
