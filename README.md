@@ -1,5 +1,4 @@
 # Google_Chrome_Current_Windows
----
 
 ## Running This Profile Directly from Github
 
