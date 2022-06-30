@@ -44,4 +44,9 @@ Enabled
   tag legacy: ["SV-57557","V-44723"]
   tag cci: ["CCI-001166"]
   tag nist: ["SC-18 (1)"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+   it { should have_property 'DefaultGeolocationSetting' }
+   its('DefaultGeolocationSetting') { should cmp 2 }
+ end
 end

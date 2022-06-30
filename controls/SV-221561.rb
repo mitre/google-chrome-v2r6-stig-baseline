@@ -46,4 +46,9 @@ Policy Value: Do not allow any site to show popups"
   tag legacy: ["SV-57553","V-44719"]
   tag cci: ["CCI-000381"]
   tag nist: ["CM-7 a"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'DefaultPopupsSetting' }
+    its('DefaultPopupsSetting') { should cmp 2 }
+  end
 end
