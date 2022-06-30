@@ -39,4 +39,9 @@ Policy State: Disabled
   tag legacy: ["SV-57545","V-44711"]
   tag cci: ["CCI-001414"]
   tag nist: ["AC-4"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'RemoteAccessHostFirewallTraversal' }
+    its('RemoteAccessHostFirewallTraversal') { should cmp 0 }
+  end
 end

@@ -39,4 +39,9 @@ State: Enabled
   tag legacy: ["SV-57561","V-44727"]
   tag cci: ["CCI-000169"]
   tag nist: ["AU-12 a"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallBlocklist') do
+    it { should have_property '1' }
+    its('1') { should cmp '*' }
+  end
 end

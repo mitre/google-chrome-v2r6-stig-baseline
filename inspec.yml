@@ -11,3 +11,5 @@ summary: '"This Security Technical Implementation Guide is published as a tool
   to this document should be sent via email to the following address:
   disa.stig_spt@mail.mil."'
 version: 2.6.0
+
+# administrator-approved extension IDs

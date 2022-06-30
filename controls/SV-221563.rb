@@ -46,4 +46,15 @@ extension), other extension IDs may vary."
   tag legacy: ["SV-57563","V-44729"]
   tag cci: ["CCI-001170"]
   tag nist: ["SC-18 (4)"]
+
+  describe.one do
+    describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallAllowlist') do
+      it { should have_property 'ExtensionInstallAllowlist' }
+      its('ExtensionInstallAllowlist') { should cmp 1 }
+    end
+    describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallAllowlist') do
+      it { should have_property 'ExtensionInstallAllowlist' }
+      its('ExtensionInstallAllowlist') { should cmp 'oiigbmnaadbkfbmpbfijlflahbdbdgdf' }
+    end
+  end
 end
