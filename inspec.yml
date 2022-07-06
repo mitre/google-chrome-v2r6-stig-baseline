@@ -4,29 +4,18 @@ maintainer: The MITRE SAF
 copyright: The MITRE Corporation
 copyright_email: saf@groups.mitre.org
 license: Apache-2.0
-summary: '"This Security Technical Implementation Guide is published as a tool
-  to improve the security of Department of Defense (DoD) information systems.
-  The requirements are derived from the National Institute of Standards and
-  Technology (NIST) 800-53 and related documents. Comments or proposed revisions
-  to this document should be sent via email to the following address:
-  disa.stig_spt@mail.mil."'
-version: 2.6.0
-
-# 
-# encrytped_search_links: 
+summary: 'The Google Chrome Security Technical Implementation Guide (STIG) is published as a tool to improve the security of Department of Defense (DoD) information systems.'
+version: 2.6.1
 
 inputs:
   - name: administrator_approved_extension_ids
-    desc: "This is a list of approved extension ids determined by administrators to decide which extensions should be allowed for their users "
+    desc: 'This is a list of approved extension ids determined by administrators to decide which extensions should be allowed for their users.'
     type: Array
     value:
-      - ''
-      - ''
       - ''
   
   - name: encrytped_search_links
-    desc: ""
+    desc: ''
     type: Array
     value:
-      - ''
       - ''
