@@ -12,5 +12,21 @@ summary: '"This Security Technical Implementation Guide is published as a tool
   disa.stig_spt@mail.mil."'
 version: 2.6.0
 
-# administrator-approved extension IDs
+# 
 # encrytped_search_links: 
+
+inputs:
+  - name: administrator_approved_extension_ids
+    desc: "This is a list of approved extension ids determined by administrators to decide which extensions should be allowed for their users "
+    type: Array
+    value:
+      - ''
+      - ''
+      - ''
+  
+  - name: encrytped_search_links
+    desc: ""
+    type: Array
+    value:
+      - ''
+      - ''
