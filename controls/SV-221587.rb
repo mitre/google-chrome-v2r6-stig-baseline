@@ -36,7 +36,7 @@ Value: N/A"
   tag nist: ["AU-12 a"]
   
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
-    it { should have_property '\"PromptForDownloadLocation\"'}
-    its('\"PromptForDownloadLocation\"') { should cmp '\"1\"' }
+    it { should have_property 'PromptForDownloadLocation'}
+    its('PromptForDownloadLocation') { should cmp '1' }
   end
 end

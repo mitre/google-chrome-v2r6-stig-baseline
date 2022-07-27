@@ -38,7 +38,7 @@ Value: N/A"
   tag nist: ["AU-12 a"]
   
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
-    it { should have_property '\"AllowDeletingBrowserHistory\"'}
-    its('\"AllowDeletingBrowserHistory\"') { should cmp '\"0\"' }
+    it { should have_property 'AllowDeletingBrowserHistory'}
+    its('AllowDeletingBrowserHistory') { should cmp '0' }
   end
 end
