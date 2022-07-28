@@ -38,4 +38,9 @@ Value: N/A"
   tag legacy: ["SV-57593","V-44759"]
   tag cci: ["CCI-001374"]
   tag nist: ["AC-4 (15)"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'SyncDisabled'}
+    its('SyncDisabled') { should cmp 1 }
+  end
 end

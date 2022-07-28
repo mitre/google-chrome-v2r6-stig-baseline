@@ -39,4 +39,9 @@ Chrome\\
   tag legacy: ["V-81583"]
   tag cci: ["CCI-002450"]
   tag nist: ["SC-13 b"]
+  
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'SSLVersionMin' }
+    its('SSLVersionMin') { should cmp 'tls1.2' }
+  end
 end

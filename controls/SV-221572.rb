@@ -43,4 +43,9 @@ Policy Name: Block access to a list of URLs.
   tag legacy: ["SV-57595","V-44761"]
   tag cci: ["CCI-000381"]
   tag nist: ["CM-7 a"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\URLBlocklist') do
+    it { should have_property '1'}
+    its('1') { should cmp 'javascript://*' }
+  end
 end

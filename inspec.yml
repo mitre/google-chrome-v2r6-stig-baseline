@@ -14,8 +14,13 @@ inputs:
     value:
       - ''
   
-  - name: encrytped_search_links
-    desc: ''
-    type: Array
-    value:
-      - ''
+  - name: approved_encrypted_search_provider_name
+    desc: "This contains the name of organization approved encrypted search provider that corresponds to the encrypted search provider"
+    type: String
+    value: ''
+
+  - name: approved_encrytped_search_string
+    desc: "This details an organization-approved encrypted search string to perform encrypted searches"
+    type: String
+    value: ''
+    

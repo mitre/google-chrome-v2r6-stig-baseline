@@ -49,4 +49,11 @@ https://www.bing.com/search?q={searchTerms} )"
   tag legacy: ["SV-57569","V-44735"]
   tag cci: ["CCI-000381"]
   tag nist: ["CM-7 a"]
+
+  approved_encrytped_search_string = input('approved_encrytped_search_string')
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'DefaultSearchProviderSearchURL' }
+    its('DefaultSearchProviderSearchURL') { should cmp approved_encrytped_search_string }
+  end
 end
