@@ -43,4 +43,9 @@ State: Enabled
   tag legacy: ["SV-57571","V-44737"]
   tag cci: ["CCI-000381"]
   tag nist: ["CM-7 a"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'DefaultSearchProviderEnabled' }
+    its('DefaultSearchProviderEnabled') { should cmp 1 }
+  end
 end

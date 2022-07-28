@@ -36,4 +36,9 @@ Policy Name: Enable search suggestions
   tag legacy: ["SV-57607","V-44773"]
   tag cci: ["CCI-000381"]
   tag nist: ["CM-7 a"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'SearchSuggestEnabled'}
+    its('SearchSuggestEnabled') { should cmp 0 }
+  end
 end

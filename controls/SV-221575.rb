@@ -42,4 +42,9 @@ Policy Value: N/A"
   tag legacy: ["SV-57605","V-44771"]
   tag cci: ["CCI-000381"]
   tag nist: ["CM-7 a"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'MetricsReportingEnabled'}
+    its('MetricsReportingEnabled') { should cmp 0 }
+  end
 end

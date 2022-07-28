@@ -37,4 +37,9 @@ Policy Value: N/A"
   tag legacy: ["SV-57599","V-44765"]
   tag cci: ["CCI-001374"]
   tag nist: ["AC-4 (15)"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'CloudPrintProxyEnabled'}
+    its('CloudPrintProxyEnabled') { should cmp 0 }
+  end
 end

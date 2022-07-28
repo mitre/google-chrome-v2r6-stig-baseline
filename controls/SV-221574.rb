@@ -35,4 +35,9 @@ not predict network actions on any network connection"
   tag legacy: ["SV-57603","V-44769"]
   tag cci: ["CCI-000366"]
   tag nist: ["CM-6 b"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property '\"NetworkPredictionOptions\"'}
+    its('\"NetworkPredictionOptions\"') { should cmp '\"2,\"' }
+  end
 end
