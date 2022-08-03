@@ -34,4 +34,9 @@ Value: N/A"
   tag legacy: ["SV-94633","V-79929"]
   tag cci: ["CCI-000169"]
   tag nist: ["AU-12 a"]
+  
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property '\"PromptForDownloadLocation\"'}
+    its('\"PromptForDownloadLocation\"') { should cmp '\"1\"' }
+  end
 end
