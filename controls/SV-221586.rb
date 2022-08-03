@@ -36,4 +36,9 @@ Value: N/A"
   tag legacy: ["SV-89845","V-75165"]
   tag cci: ["CCI-000169"]
   tag nist: ["AU-12 a"]
+  
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property '\"AllowDeletingBrowserHistory\"'}
+    its('\"AllowDeletingBrowserHistory\"') { should cmp '\"0\"' }
+  end
 end
