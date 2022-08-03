@@ -45,8 +45,14 @@ Enabled
   tag cci: ["CCI-001166"]
   tag nist: ["SC-18 (1)"]
   
-  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
-    it { should have_property 'SafeBrowsingProtectionLevel'}
-    its('SafeBrowsingProtectionLevel') { should cmp 1 }
-  end
+  describe.one do
+    describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\') do
+      it { should have_property 'SafeBrowsingProtectionLevel' }
+      its('SafeBrowsingProtectionLevel') { should cmp 1 }
+     end
+     describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\') do
+      it { should have_property 'SafeBrowsingProtectionLevel' }
+      its('SafeBrowsingProtectionLevel') { should cmp 2 }
+     end
+    end
 end
