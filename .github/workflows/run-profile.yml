@@ -22,12 +22,12 @@ jobs:
     #   with:
     #     channel: current
     #     project: inspec
-    # - name: Install InSpec as a Ruby Gem
-    #   run: gem install inspec-bin
-    - name: Install Inspec using windows command
-      run: . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project inspec
-    - name: Install Inspec-bin using windows command
-      run: . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project inspec-bin
+    - name: Try to install ruby dev kit
+      run: ridk install
+    - name: Install InSpec as a Ruby Gem
+      run: gem install inspec-bin
+    # - name: Install Inspec using windows command
+    #   run: . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project inspec
     - name: Print the environment
       run: 'dir env:'
     - name: Check InSpec version
