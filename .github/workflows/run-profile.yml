@@ -30,6 +30,8 @@ jobs:
     #   run: . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project inspec
     - name: Print the environment
       run: 'dir env:'
+    - name: List ruby file
+      run: ls C:\Ruby31-x64\bin\
     - name: Check InSpec version
       run: inspec version
     - name: Try to find InSpec
