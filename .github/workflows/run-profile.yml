@@ -17,7 +17,9 @@ jobs:
       with:
         channel: current
         project: inspec
-    - name: Where am I?
-      run: ls C:\opscode\chef-workstation\
+    - name: Print the environment
+      run: 'dir env:'
+    - name: Try to find InSpec
+      run: Get-Command inspec
     - name: Run InSpec
-      run: C:\opscode\chef-workstation\inspec exec . --reporter=cli
+      run: inspec exec . --reporter=cli
