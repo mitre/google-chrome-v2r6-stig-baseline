@@ -19,8 +19,10 @@ jobs:
     #   with:
     #     channel: current
     #     project: inspec
-    - name: Install InSpec as a Ruby Get-Command
-      run: gem install inspec-bin
+    # - name: Install InSpec as a Ruby Gem
+    #   run: gem install inspec-bin
+    - name: Install Inspec using windows command
+      run: . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project inspec
     - name: Print the environment
       run: 'dir env:'
     - name: Try to find InSpec
