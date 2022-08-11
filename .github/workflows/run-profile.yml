@@ -12,11 +12,13 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@master
-    - name: install chef
-      uses: actionshub/chef-install@main
-      with:
-        channel: current
-        project: inspec
+    # - name: install chef
+    #   uses: actionshub/chef-install@main
+    #   with:
+    #     channel: current
+    #     project: inspec
+    - name: Install InSpec as a Ruby Get-Command
+      run: gem install inspec
     - name: Print the environment
       run: 'dir env:'
     - name: Try to find InSpec
