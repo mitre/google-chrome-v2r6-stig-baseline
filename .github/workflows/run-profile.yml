@@ -9,6 +9,8 @@ jobs:
   my-job:
     name: Validate my profile
     runs-on: windows-2022
+    env:
+      CHEF_LICENSE: accept-silent
     steps:
     - name: Check out code
       uses: actions/checkout@master
@@ -18,7 +20,7 @@ jobs:
     #     channel: current
     #     project: inspec
     - name: Install InSpec as a Ruby Get-Command
-      run: gem install inspec
+      run: gem install inspec-bin
     - name: Print the environment
       run: 'dir env:'
     - name: Try to find InSpec
