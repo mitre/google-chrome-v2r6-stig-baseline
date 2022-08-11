@@ -8,23 +8,28 @@ on:
 jobs:
   my-job:
     name: Validate my profile
+    timeout-minutes: NUMBER
     runs-on: windows-2022
     env:
       CHEF_LICENSE: accept-silent
     steps:
     - name: Check out code
       uses: actions/checkout@master
+    - name: Print path
+      run: '$env:PATH'
     # - name: install chef
     #   uses: actionshub/chef-install@main
     #   with:
     #     channel: current
     #     project: inspec
-    # - name: Install InSpec as a Ruby Gem
-    #   run: gem install inspec-bin
-    - name: Install Inspec using windows command
-      run: . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project inspec
+    - name: Install InSpec as a Ruby Gem
+      run: gem install inspec-bin
+    # - name: Install Inspec using windows command
+    #   run: . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project inspec
     - name: Print the environment
       run: 'dir env:'
+    - name: Check InSpec version
+      run: inspec version
     - name: Try to find InSpec
       run: Get-Command inspec
     - name: Run InSpec
