@@ -1,0 +1,21 @@
+name: Run InSpec Profile
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  my-job:
+    name: Validate my profile
+    runs-on: windows-2022
+    steps:
+    - name: Check out code
+      uses: actions/checkout@master
+    - name: install chef
+      uses: actionshub/chef-install@main
+      with:
+        channel: current
+        project: inspec
+    - name: Run InSpec
+      run: inspec exec . --reporter=cli
