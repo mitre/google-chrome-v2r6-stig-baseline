@@ -15,17 +15,17 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@master
+    - name: install chef
+      uses: actionshub/chef-install@main
+      with:
+        channel: current
+        project: inspec
     - name: Print path
       run: '$env:PATH'
-    # - name: install chef
-    #   uses: actionshub/chef-install@main
-    #   with:
-    #     channel: current
-    #     project: inspec
-    - name: Try to install ruby dev kit
-      run: ridk install
-    - name: Install InSpec as a Ruby Gem
-      run: gem install inspec-bin
+    # - name: Try to install ruby dev kit
+    #   run: ridk install
+    # - name: Install InSpec as a Ruby Gem
+    #   run: gem install inspec-bin
     # - name: Install Inspec using windows command
     #   run: . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project inspec
     - name: Print the environment
