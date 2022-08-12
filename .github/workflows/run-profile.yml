@@ -16,26 +16,19 @@ jobs:
       uses: actions/checkout@master
     - name: install chef
       uses: actionshub/chef-install@main
-      # with:
-      #   channel: current
-      #   project: inspec
     - name: Check InSpec version
       run: inspec version
     - name: Run InSpec
-      run: inspec exec . --reporter=cli
-
-    # - name: Print the environment
-    #   run: 'dir env:'
-
-    # - name: Try to find InSpec
-    #   run: Get-Command inspec
-    # - name: List ruby file
-    #   run: ls C:\Ruby31-x64\bin\
-    # - name: Print path
-    #   run: '$env:PATH'
-    # - name: Try to install ruby dev kit
-    #   run: ridk install
-    # - name: Install InSpec as a Ruby Gem
-    #   run: gem install inspec-bin
-    # - name: Install Inspec using windows command
-    #   run: . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project inspec
+      run: 'inspec exec . --reporter=json:results.json'
+    - name: Display the results summary
+      uses: mitre/saf_action@v1
+      with:
+        command_string: 'view summary -i results.json'
+    - name: Ensure the scan meets the results threshold
+      uses: mitre/saf_action@v1
+      with:
+        command_string: 'validate threshold -i results.json -F threshold.yml'
+    - name: Save Test Result JSON
+      uses: actions/upload-artifact@v2
+      with:
+        path: results.json
