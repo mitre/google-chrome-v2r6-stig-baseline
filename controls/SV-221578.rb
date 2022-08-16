@@ -43,4 +43,9 @@ mode disabled"
   tag legacy: ["SV-57611","V-44777"]
   tag cci: ["CCI-000166"]
   tag nist: ["AU-10"]
+  
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'IncognitoModeAvailability'}
+    its('IncognitoModeAvailability') { should cmp 1 }
+  end
 end
