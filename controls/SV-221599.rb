@@ -37,4 +37,9 @@ Policy Value: Disallow usage of the Developer Tools"
   tag legacy: ["SV-106629","V-97525"]
   tag cci: ["CCI-001312"]
   tag nist: ["SI-11 a"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'DeveloperToolsAvailability'}
+    its('DeveloperToolsAvailability') { should cmp 2 }
+  end
 end

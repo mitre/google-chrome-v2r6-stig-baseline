@@ -42,4 +42,9 @@ Policy Value: N/A"
   tag legacy: ["SV-96299","V-81585"]
   tag cci: ["CCI-001166"]
   tag nist: ["SC-18 (1)"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'SafeBrowsingExtendedReportingEnabled'}
+    its('SafeBrowsingExtendedReportingEnabled') { should cmp 0 }
+  end
 end

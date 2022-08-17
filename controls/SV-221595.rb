@@ -37,4 +37,9 @@ Policy Value: N/A"
   tag legacy: ["SV-96295","V-81581"]
   tag cci: ["CCI-000381"]
   tag nist: ["CM-7 a"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'AutoplayAllowed'}
+    its('AutoplayAllowed') { should cmp 0 }
+  end
 end

@@ -41,4 +41,9 @@ Policy Value: NA"
   tag legacy: ["SV-101303","V-91203"]
   tag cci: ["CCI-001166"]
   tag nist: ["SC-18 (1)"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'UrlKeyedAnonymizedDataCollectionEnabled'}
+    its('UrlKeyedAnonymizedDataCollectionEnabled') { should cmp 0 }
+  end
 end
