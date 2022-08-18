@@ -22,19 +22,14 @@ inputs:
   - name: approved_encrytped_search_string
     desc: "This details an organization-approved encrypted search string to perform encrypted searches"
     type: String
-    value: ''
-
-  - name: google_chrome_version
-    desc: "This may be manually entered and be found by opening the Chrome browser, going to Settings, then clicking About Chrome (at the bottom) "
-    type: String
-    value: ''    
+    value: ''  
 
   - name: siprnet_system
     description: "If this system/machine is on the SIPRNet"
     type: Boolean
     value: false
 
- - name: administrator_approved_urls
+  - name: administrator_approved_urls
     description: "Administrator approved allowlist of URL patterns that autoplay will always be enabled on"
     type: Array
     value: 

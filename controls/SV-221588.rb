@@ -57,7 +57,7 @@ Policy Value: N/A"
   tag cci: ["CCI-000169"]
   tag nist: ["AU-12 a"]
 
-  if input('siprnet_system') == 'true'
+  if input('siprnet_system') == true
     impact 0.0
     describe 'This Control is Not Applicable to systems on the SIPRNet.' do
       skip 'This Control is Not Applicable to systems on the SIPRNet.'
@@ -73,4 +73,5 @@ Policy Value: N/A"
           its('DownloadRestrictions') { should cmp 2 }
         end
      end
+  end
 end
