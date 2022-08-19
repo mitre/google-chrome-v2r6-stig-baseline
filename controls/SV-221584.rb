@@ -22,9 +22,9 @@ installed version of Chrome is not supported by Google, this is a finding."
   tag cci: ["CCI-002605"]
   tag nist: ["SI-2 c"]
 
-  domain_role = command('(Get-Item (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe').'(Default)').VersionInfo.ProductVersion')
+  domain_role = command('(Get-Item (Get-ItemProperty \'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe\').\'(Default)\').VersionInfo.ProductVersion')
 
   describe domain_role do
-    it { should cmp >= 74.0.0 }
+    it { should cmp >= '74.0.0' }
   end
 end
