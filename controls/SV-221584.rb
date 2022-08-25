@@ -24,7 +24,9 @@ installed version of Chrome is not supported by Google, this is a finding."
 
   domain_role = command('(Get-Item (Get-ItemProperty \'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe\').\'(Default)\').VersionInfo.ProductVersion')
 
+  google_version = input('74.0.0')
+
   describe domain_role do
-    it { should cmp >= '74.0.0' }
+    it { should cmp >= google_version }
   end
 end

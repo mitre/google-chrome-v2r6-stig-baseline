@@ -57,10 +57,10 @@ Policy Value: N/A"
   tag cci: ["CCI-000169"]
   tag nist: ["AU-12 a"]
 
-  if input('siprnet_system') == true
+  if sensitive_system
     impact 0.0
-    describe 'This Control is Not Applicable to systems on the SIPRNet.' do
-      skip 'This Control is Not Applicable to systems on the SIPRNet.'
+    describe 'This Control is Not Applicable to systems for Sensitive Networks.' do
+      skip 'This Control is Not Applicable to systems for Sensitive Networks.'
     end
   else
     describe.one do

@@ -24,8 +24,8 @@ inputs:
     type: String
     value: ''  
 
-  - name: siprnet_system
-    description: "If this system/machine is on the SIPRNet"
+  - name: sensitive_system
+    description: "If this system/machine is on a Sensitive Network(s)"
     type: Boolean
     value: false
 
