@@ -19,7 +19,7 @@ jobs:
     - name: Check InSpec version
       run: inspec version
     - name: Run InSpec
-      run: 'inspec exec . --reporter=cli json:results.json'
+      run: 'inspec exec . --reporter=cli json:results.json | true'
     - name: Display the results summary
       uses: mitre/saf_action@v1
       with:
