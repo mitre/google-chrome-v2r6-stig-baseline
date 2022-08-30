@@ -33,4 +33,9 @@ Policy Name: Disable saving browser history
   tag legacy: ["SV-57627","V-44793"]
   tag cci: ["CCI-001199"]
   tag nist: ["SC-28"]
+  
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'SavingBrowserHistoryDisabled'}
+    its('SavingBrowserHistoryDisabled') { should cmp 0 }
+  end
 end

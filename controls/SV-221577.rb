@@ -36,4 +36,9 @@ Disabled
   tag legacy: ["SV-57609","V-44775"]
   tag cci: ["CCI-000381"]
   tag nist: ["CM-7 a"]
+  
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'ImportSavedPasswords'}
+    its('ImportSavedPasswords') { should cmp 0 }
+  end
 end
