@@ -22,11 +22,13 @@ installed version of Chrome is not supported by Google, this is a finding."
   tag cci: ["CCI-002605"]
   tag nist: ["SI-2 c"]
 
-  domain_role = command('(Get-Item (Get-ItemProperty \'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe\').\'(Default)\').VersionInfo.ProductVersion')
+  current_chrome_version_command  = <<-EOH
+    #find version
+    $version = (Get-Item (Get-ItemProperty 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\chrome.exe').'(Default)').VersionInfo.ProductVersion
+    echo $version
+  EOH
 
-  google_version = input('74.0.0')
-
-  describe domain_role do
-    it { should cmp >= google_version }
+  describe powershell(current_chrome_version_command) do
+    its('stdout') { should cmp >= input('google_chrome_version')  }
   end
 end
