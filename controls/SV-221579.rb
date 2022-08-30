@@ -36,4 +36,9 @@ Policy Name: Enable online OCSP/CRL checks
   tag legacy: ["SV-57623","V-44789"]
   tag cci: ["CCI-000185"]
   tag nist: ["IA-5 (2) (b) (1)"]
+  
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'EnableOnlineRevocationChecks'}
+    its('EnableOnlineRevocationChecks') { should cmp 1 }
+  end
 end
