@@ -23,8 +23,8 @@ installed version of Chrome is not supported by Google, this is a finding."
   tag nist: ["SI-2 c"]
 
   current_chrome_version_command  = <<-EOH
-    #find version
-    $version = (Get-Item (Get-ItemProperty 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\chrome.exe').'(Default)').VersionInfo.ProductVersion
+    # $(Get-Package -Name "Google Chrome").Version
+    $version = (Get-Item (Get-ItemProperty 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\chrome.exe').'(Default)').VersionInfo.ProductVersionwerwe
     echo $version
   EOH
 

@@ -57,7 +57,7 @@ Policy Value: N/A"
   tag cci: ["CCI-000169"]
   tag nist: ["AU-12 a"]
 
-  if sensitive_system
+  if input('sensitive_system')
     impact 0.0
     describe 'This Control is Not Applicable to systems for Sensitive Networks.' do
       skip 'This Control is Not Applicable to systems for Sensitive Networks.'
