@@ -32,7 +32,7 @@ inputs:
   - name: google_chrome_version
     description: "This contains the least acceptable version number for Google Chrome"
     type: Numeric
-    value: '74.0.0' 
+    value: 74.0.0 
 
   - name: administrator_approved_urls
     description: "Administrator approved allowlist of URL patterns that autoplay will always be enabled on"
