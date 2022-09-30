@@ -21,4 +21,4 @@ installed version of Chrome is not supported by Google, this is a finding."
   tag legacy: ["SV-57639","V-44805"]
   tag cci: ["CCI-002605"]
   tag nist: ["SI-2 c"]
-end
+
