@@ -31,7 +31,7 @@ inputs:
 
   - name: google_chrome_version
     description: "This contains the least acceptable version number for Google Chrome"
-    type: Numeric
+    type: String
     value: '74.0.0' 
 
   - name: administrator_approved_urls
