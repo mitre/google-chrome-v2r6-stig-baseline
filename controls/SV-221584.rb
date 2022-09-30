@@ -22,3 +22,13 @@ installed version of Chrome is not supported by Google, this is a finding."
   tag cci: ["CCI-002605"]
   tag nist: ["SI-2 c"]
 
+  current_chrome_version_command  = <<-EOH
+    # $(Get-Package -Name "Google Chrome").Version
+    $version = (Get-Item (Get-ItemProperty 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\chrome.exe').'(Default)').VersionInfo.ProductVersionwerwe
+    echo $version
+  EOH
+
+  describe powershell(current_chrome_version_command) do
+    its('stdout') { should be >= input('google_chrome_version')  }
+  end
+end
