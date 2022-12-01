@@ -43,4 +43,9 @@ Bluetooth API"
   tag legacy: ["SV-34246","V-26961"]
   tag cci: ["CCI-000381"]
   tag nist: ["CM-7 a"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'DefaultWebBluetoothGuardSetting'}
+    its('DefaultWebBluetoothGuardSetting') { should cmp 2 }
+  end
 end

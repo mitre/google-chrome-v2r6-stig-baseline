@@ -37,4 +37,9 @@ Policy State: Disabled"
   tag legacy: ["SV-111833","V-102871"]
   tag cci: ["CCI-001166"]
   tag nist: ["SC-18 (1)"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'AutofillAddressEnabled'}
+    its('AutofillAddressEnabled') { should cmp 0 }
+  end
 end

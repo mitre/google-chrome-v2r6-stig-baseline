@@ -38,4 +38,9 @@ Policy State: Disabled"
   tag legacy: ["SV-111831","V-102869"]
   tag cci: ["CCI-001166"]
   tag nist: ["SC-18 (1)"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should have_property 'AutofillCreditCardEnabled'}
+    its('AutofillCreditCardEnabled') { should cmp 0 }
+  end
 end
