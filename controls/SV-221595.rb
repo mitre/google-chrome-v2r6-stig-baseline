@@ -39,6 +39,7 @@ Policy Value: N/A"
   tag nist: ["CM-7 a"]
 
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist }
     it { should have_property 'AutoplayAllowed'}
     its('AutoplayAllowed') { should cmp 0 }
   end

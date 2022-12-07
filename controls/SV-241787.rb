@@ -45,6 +45,7 @@ Bluetooth API"
   tag nist: ["CM-7 a"]
 
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist }
     it { should have_property 'DefaultWebBluetoothGuardSetting'}
     its('DefaultWebBluetoothGuardSetting') { should cmp 2 }
   end

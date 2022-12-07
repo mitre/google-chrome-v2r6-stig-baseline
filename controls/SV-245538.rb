@@ -39,6 +39,7 @@ Policy Name: Allow QUIC protocol
   tag nist: ["CM-7 (1) (b)"]
 
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist }
     it { should have_property 'DefaultWebBluetoothGuardSetting'}
     its('DefaultWebBluetoothGuardSetting') { should cmp 0 }
   end

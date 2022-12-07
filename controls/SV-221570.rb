@@ -44,6 +44,7 @@ Disabled
   tag nist: ["SC-18 (3)"]
 
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist } 
     it { should have_property 'BackgroundModeEnabled' }
     its('BackgroundModeEnabled') { should cmp 0 }
   end

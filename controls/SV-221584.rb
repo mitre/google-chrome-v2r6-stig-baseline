@@ -27,6 +27,7 @@ installed version of Chrome is not supported by Google, this is a finding."
   EOH
 
   describe powershell(current_chrome_version_command) do
+    it { should exist }
     its('stdout') { should cmp >= input('google_chrome_version')  }
   end
 end

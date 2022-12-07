@@ -41,10 +41,9 @@ examples."
   tag cci: ["CCI-001170"]
   tag nist: ["SC-18 (4)"]
 
-  approved_urls = input('administrator_approved_urls')
-
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist }
     it { should have_property 'AutoplayAllowlist'}
-    its('AutoplayAllowlist') { should cmp approved_urls }
+    its('AutoplayAllowlist') { should cmp input('administrator_approved_urls') }
   end
 end

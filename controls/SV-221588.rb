@@ -65,10 +65,12 @@ Policy Value: N/A"
   else
     describe.one do
         describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+          it { should exist }
           it { should have_property 'DownloadRestrictions' }
           its('DownloadRestrictions') { should cmp 1 }
         end
         describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+          it { should exist }
           it { should have_property 'DownloadRestrictions' }
           its('DownloadRestrictions') { should cmp 2 }
         end

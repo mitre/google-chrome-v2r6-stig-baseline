@@ -50,6 +50,7 @@ Policy Value: N/A"
   tag nist: ["AU-12 a"]
 
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist }
     it { should have_property 'ChromeCleanupReportingEnabled'}
     its('ChromeCleanupReportingEnabled') { should cmp 0 }
   end
