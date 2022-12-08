@@ -47,21 +47,21 @@ extension), other extension IDs may vary."
   tag cci: ["CCI-001170"]
   tag nist: ["SC-18 (4)"]
 
-  # list of approved extension ids determined by administrators to decide which extensions should be allowed for their users
-  approved_ids = input('administrator_approved_extension_ids')
-
   describe.one do
     describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallAllowlist') do
+      it { should exist }
       it { should have_property 'ExtensionInstallAllowlist' }
       its('ExtensionInstallAllowlist') { should cmp 1 }
     end
     describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallAllowlist') do
+      it { should exist }
       it { should have_property 'ExtensionInstallAllowlist' }
       its('ExtensionInstallAllowlist') { should cmp 'oiigbmnaadbkfbmpbfijlflahbdbdgdf' }
     end
     describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallAllowlist') do
+      it { should exist }
       it { should have_property 'ExtensionInstallAllowlist' }
-      its('ExtensionInstallAllowlist') { should cmp approved_ids }
+      its('ExtensionInstallAllowlist') { should cmp input('administrator_approved_extension_ids') }
     end
   end
 end

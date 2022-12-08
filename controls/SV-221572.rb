@@ -45,6 +45,7 @@ Policy Name: Block access to a list of URLs.
   tag nist: ["CM-7 a"]
 
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\URLBlocklist') do
+    it { should exist } 
     it { should have_property '1'}
     its('1') { should cmp 'javascript://*' }
   end

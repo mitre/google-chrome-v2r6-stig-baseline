@@ -38,6 +38,7 @@ Policy Name: Enable search suggestions
   tag nist: ["CM-7 a"]
 
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist }
     it { should have_property 'SearchSuggestEnabled'}
     its('SearchSuggestEnabled') { should cmp 0 }
   end

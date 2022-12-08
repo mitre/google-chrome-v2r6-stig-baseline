@@ -42,10 +42,9 @@ Encrypted)"
   tag cci: ["CCI-000381"]
   tag nist: ["CM-7 a"]
 
-  approved_encrypted_search_provider_name = input('approved_encrypted_search_provider_name')
-
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist } 
     it { should have_property 'DefaultSearchProviderName' }
-    its('DefaultSearchProviderName') { should cmp approved_encrypted_search_provider_name }
+    its('DefaultSearchProviderName') { should cmp input('approved_encrypted_search_provider_name') }
   end
 end
