@@ -40,7 +40,7 @@ Policy Name: Allow QUIC protocol
 
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
     it { should exist }
-    it { should have_property 'DefaultWebBluetoothGuardSetting'}
-    its('DefaultWebBluetoothGuardSetting') { should cmp 0 }
+    it { should have_property 'QuicAllowed'}
+    its('QuicAllowed') { should cmp 0 }
   end
 end
