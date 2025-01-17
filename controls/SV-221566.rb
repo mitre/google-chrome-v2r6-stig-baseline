@@ -45,6 +45,7 @@ State: Enabled
   tag nist: ["CM-7 a"]
 
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist } 
     it { should have_property 'DefaultSearchProviderEnabled' }
     its('DefaultSearchProviderEnabled') { should cmp 1 }
   end

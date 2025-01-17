@@ -39,6 +39,7 @@ Policy Value: N/A"
   tag nist: ["AC-4 (15)"]
 
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist } 
     it { should have_property 'CloudPrintProxyEnabled'}
     its('CloudPrintProxyEnabled') { should cmp 0 }
   end

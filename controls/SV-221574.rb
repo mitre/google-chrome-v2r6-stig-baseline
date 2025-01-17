@@ -37,7 +37,8 @@ not predict network actions on any network connection"
   tag nist: ["CM-6 b"]
 
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
-    it { should have_property '\"NetworkPredictionOptions\"'}
-    its('\"NetworkPredictionOptions\"') { should cmp '\"2,\"' }
+    it { should exist }
+    it { should have_property 'NetworkPredictionOptions'}
+    its('NetworkPredictionOptions') { should cmp 2}
   end
 end

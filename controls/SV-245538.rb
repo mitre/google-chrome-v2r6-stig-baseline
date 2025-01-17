@@ -37,4 +37,10 @@ Policy Name: Allow QUIC protocol
   tag fix_id: "F-48769r808523_fix"
   tag cci: ["CCI-001762"]
   tag nist: ["CM-7 (1) (b)"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist }
+    it { should have_property 'QuicAllowed'}
+    its('QuicAllowed') { should cmp 0 }
+  end
 end

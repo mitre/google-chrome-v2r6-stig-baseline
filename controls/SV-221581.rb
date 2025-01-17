@@ -35,6 +35,7 @@ Policy Name: Disable saving browser history
   tag nist: ["SC-28"]
   
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist }
     it { should have_property 'SavingBrowserHistoryDisabled'}
     its('SavingBrowserHistoryDisabled') { should cmp 0 }
   end

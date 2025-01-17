@@ -47,10 +47,12 @@ Enabled
   
   describe.one do
     describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+      it { should exist }
       it { should have_property 'SafeBrowsingProtectionLevel' }
       its('SafeBrowsingProtectionLevel') { should cmp 1 }
      end
      describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+      it { should exist }
       it { should have_property 'SafeBrowsingProtectionLevel' }
       its('SafeBrowsingProtectionLevel') { should cmp 2 }
      end
