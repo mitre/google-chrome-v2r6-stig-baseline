@@ -45,6 +45,7 @@ mode disabled"
   tag nist: ["AU-10"]
   
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist }
     it { should have_property 'IncognitoModeAvailability'}
     its('IncognitoModeAvailability') { should cmp 1 }
   end

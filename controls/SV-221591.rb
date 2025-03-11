@@ -38,4 +38,10 @@ Policy Value: 2"
   tag legacy: ["SV-96301","V-81587"]
   tag cci: ["CCI-000381"]
   tag nist: ["CM-7 a"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist }
+    it { should have_property 'DefaultWebUsbGuardSetting'}
+    its('DefaultWebUsbGuardSetting') { should cmp 2 }
+  end
 end

@@ -12,7 +12,7 @@ otherwise."
 2. If the policy 
 \"CookiesSessionOnlyForUrls\" exists and has any defined values, this is a 
 finding.
-
+ 
 Windows method:
 1. Start regedit.
 2. Navigate to 
@@ -37,4 +37,8 @@ session
   tag fix_id: "F-23287r769362_fix"
   tag cci: ["CCI-000166"]
   tag nist: ["AU-10"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should_not have_property 'CookiesSessionOnlyForUrls'}
+  end
 end

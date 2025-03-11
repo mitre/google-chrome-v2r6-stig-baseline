@@ -48,6 +48,7 @@ Policy Value: Do not allow any site to show popups"
   tag nist: ["CM-7 a"]
 
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist } 
     it { should have_property 'DefaultPopupsSetting' }
     its('DefaultPopupsSetting') { should cmp 2 }
   end

@@ -56,4 +56,24 @@ Policy Value: N/A"
   tag legacy: ["SV-94635","V-79931"]
   tag cci: ["CCI-000169"]
   tag nist: ["AU-12 a"]
+
+  if input('sensitive_system')
+    impact 0.0
+    describe 'This Control is Not Applicable to systems for Sensitive Networks.' do
+      skip 'This Control is Not Applicable to systems for Sensitive Networks.'
+    end
+  else
+    describe.one do
+        describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+          it { should exist }
+          it { should have_property 'DownloadRestrictions' }
+          its('DownloadRestrictions') { should cmp 1 }
+        end
+        describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+          it { should exist }
+          it { should have_property 'DownloadRestrictions' }
+          its('DownloadRestrictions') { should cmp 2 }
+        end
+     end
+  end
 end

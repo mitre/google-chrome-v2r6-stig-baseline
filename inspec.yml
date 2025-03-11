@@ -9,18 +9,35 @@ version: 2.6.1
 
 inputs:
   - name: administrator_approved_extension_ids
-    desc: 'This is a list of approved extension ids determined by administrators to decide which extensions should be allowed for their users.'
+    description: 'This is a list of approved extension ids determined by administrators to decide which extensions should be allowed for their users.'
     type: Array
     value:
       - ''
-  
+
   - name: approved_encrypted_search_provider_name
-    desc: "This contains the name of organization approved encrypted search provider that corresponds to the encrypted search provider"
+    description: "This contains the name of organization approved encrypted search provider that corresponds to the encrypted search provider"
     type: String
     value: ''
 
   - name: approved_encrytped_search_string
-    desc: "This details an organization-approved encrypted search string to perform encrypted searches"
+    description: "This details an organization-approved encrypted search string to perform encrypted searches"
     type: String
     value: ''
-    
+
+  - name: sensitive_system
+    description: "If this system/machine is on a Sensitive Network(s)"
+    type: Boolean
+    value: false
+
+  - name: google_chrome_version
+    description: "This contains the least acceptable version number for Google Chrome"
+    type: String
+    value: '74.0.0'
+
+  - name: administrator_approved_urls
+    description: "Administrator approved allowlist of URL patterns that autoplay will always be enabled on"
+    type: Array
+    value:
+    - ''
+    - ''
+ 

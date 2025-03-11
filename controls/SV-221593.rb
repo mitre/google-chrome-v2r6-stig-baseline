@@ -48,4 +48,10 @@ Policy Value: N/A"
   tag legacy: ["SV-96307","V-81593"]
   tag cci: ["CCI-000169"]
   tag nist: ["AU-12 a"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist }
+    it { should have_property 'ChromeCleanupReportingEnabled'}
+    its('ChromeCleanupReportingEnabled') { should cmp 0 }
+  end
 end

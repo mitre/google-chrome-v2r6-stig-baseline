@@ -41,6 +41,7 @@ Chrome\\
   tag nist: ["SC-13 b"]
   
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist }
     it { should have_property 'SSLVersionMin' }
     its('SSLVersionMin') { should cmp 'tls1.2' }
   end

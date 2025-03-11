@@ -21,4 +21,13 @@ installed version of Chrome is not supported by Google, this is a finding."
   tag legacy: ["SV-57639","V-44805"]
   tag cci: ["CCI-002605"]
   tag nist: ["SI-2 c"]
+
+  current_chrome_version_command  = <<-EOH
+    (Get-ItemProperty -Path Registry::HKEY_CURRENT_USER\\SOFTWARE\\Google\\Chrome\\BLBeacon -Name version).version
+  EOH
+
+  describe powershell(current_chrome_version_command) do
+    it { should exist }
+    its('stdout') { should cmp >= input('google_chrome_version')  }
+  end
 end

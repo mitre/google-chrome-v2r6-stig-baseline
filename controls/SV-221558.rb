@@ -41,6 +41,7 @@ Policy State: Disabled
   tag nist: ["AC-4"]
 
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist } 
     it { should have_property 'RemoteAccessHostFirewallTraversal' }
     its('RemoteAccessHostFirewallTraversal') { should cmp 0 }
   end

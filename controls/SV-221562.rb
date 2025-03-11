@@ -41,6 +41,7 @@ State: Enabled
   tag nist: ["AU-12 a"]
 
   describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallBlocklist') do
+    it { should exist } 
     it { should have_property '1' }
     its('1') { should cmp '*' }
   end

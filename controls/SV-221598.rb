@@ -42,4 +42,10 @@ Policy Value: NA"
   tag legacy: ["SV-101305","V-91205"]
   tag cci: ["CCI-001166"]
   tag nist: ["SC-18 (1)"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist }
+    it { should have_property 'WebRtcEventLogCollectionAllowed'}
+    its('WebRtcEventLogCollectionAllowed') { should cmp 0 }
+  end
 end

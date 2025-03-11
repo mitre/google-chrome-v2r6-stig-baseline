@@ -34,4 +34,10 @@ Policy State: Disabled"
   tag legacy: ["SV-111829","V-102867"]
   tag cci: ["CCI-001166"]
   tag nist: ["SC-18 (1)"]
+
+  describe registry_key('HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome') do
+    it { should exist }
+    it { should have_property 'BrowserGuestModeEnabled'}
+    its('BrowserGuestModeEnabled') { should cmp 0 }
+  end
 end
